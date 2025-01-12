@@ -8,7 +8,7 @@ def update_active_users(firestore: firestore.Client) -> None:
     num_active_users = 0
 
     # Count the last 5 minutes worth of pings. Flush anything else.
-    query = firestore.collection(u'active_users')
+    query = firestore.collection("active_users")
     docs = query.stream()
     for doc in docs:
         if doc.to_dict()["ping_timestamp"] > five_minutes_ago:
